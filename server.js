@@ -98,11 +98,11 @@ app.post('/save-score', (req, res) => {
         if (score > players[playerIndex].score) {
             players[playerIndex].score = score;
 
-            if (score > 1500) {
+            if (score > 2500) {
                 players[playerIndex].rank = 'Mestre da Segurança';
-            } else if (score > 1000) {
+            } else if (score > 1300) {
                 players[playerIndex].rank = 'Experiente';
-            } else if (score > 500) {
+            } else if (score > 800) {
                 players[playerIndex].rank = 'Aprendiz';
             } else {
                 players[playerIndex].rank = 'Novato';

@@ -9,128 +9,141 @@ let gameState = {
 
 // Banco de EPIs
 const epis = {
-    'EPI_CAPACETE_B': { name: 'Capacete  Classe B', icon: '⛑️' },
+    'EPI_CAPACETE_B': { name: 'Capacete Classe B', icon: '⛑️' },
     'EPI_VISEIRA_FACIAL': { name: 'Viseira Facial', icon: '🥽' },
-    'EPI_BOTINA_ISOLANTE': { name: 'Botina Isolante', icon: '👢' },
-    'EPI_LUVA_ISOLANTE': { name: 'Luva Isolante', icon: '🧤' },
-    'EPI_OCULOS': { name: 'Óculos de Proteção', icon: '👓' },
+    'EPI_BOTINA_ISOLANTE': { name: 'Botina Isolante com Biqueira de Composite', icon: '👢' },
+    'EPI_LUVA_ISOLANTE': { name: 'Luva de Malha Pigmentada', icon: '🧤' },
+    'EPI_OCULOS': { name: 'Óculos de Segurança', icon: '👓' },
     'EPI_PROTETOR_AURICULAR': { name: 'Protetor Auricular', icon: '🎧' },
-    'EPI_MASCARA': { name: 'Máscara', icon: '😷' },
+    'EPI_MASCARA': { name: 'Máscara Respiratória', icon: '😷' },
     'EPI_CINTO': { name: 'Cinto de Segurança', icon: '🦺' },
-    'EPI_LUVA_CORTE': { name: 'Luva Anticorte', icon: '🧤🔪' },
-    'EPI_RESPIRADOR': { name: 'Respirador com Filtro Químico', icon: '🫁' },
-    'EPI_AVENTAL': { name: 'Avental de Segurança', icon: '🥼' },
-    'EPI_COLETE_REFLETIVO': { name: 'Colete Refletivo', icon: '🦺✨' },
-    'EPI_PROTETOR_SOLAR': { name: 'Protetor Solar', icon: '🌞🧴' },
-    'EPI_PROTETOR_SOLDADOR': { name: 'Máscara de Solda', icon: '🔫😷' },
-    'EPI_TAPETE_ISOLANTE': { name: 'Tapete Isolante', icon: '🪟' }
+    'EPI_LUVA_CORTE': { name: 'Luva de Raspa de Couro', icon: '🧤🔪' },
+    'EPI_TRAJE': { name: 'Traje Impermeável de PVC', icon: '🥼' },
+    'EPI_PROTETOR_SOLDADOR': { name: 'Viseira de Solda', icon: '🔫😷' },
+    'EPI_BOTINA_AÇO': { name: 'Botina com Biqueira de Aço', icon: '🪟' }
 };
 
 // Banco de Desafios
 const challenges = [
     {
         id: 'ELET_001',
-        text: 'Você precisa substituir um disjuntor neste painel. Quais EPIs são essenciais?',
-        correctEpis: ['EPI_CAPACETE_B', 'EPI_VISEIRA_FACIAL', 'EPI_BOTINA_ISOLANTE'],
+        text: 'Você foi encarregado de organizar um antigo almoxarifado que está fechado há meses. Ao mover as caixas, uma grande quantidade de poeira e mofo sobe no ar. Qual EPI é necessário para proteger suas vias respiratórias?',
+        correctEpis: ['EPI_MASCARA'],
         successMessage: 'Parabéns! Com os EPIs corretos, a tarefa foi executada em total segurança.',
         failMessage: 'Cuidado! A proteção facial e isolamento são essenciais para trabalhos elétricos.',
         points: 100
     },
     {
         id: 'ELET_002',
-        text: 'Corte de chapas metálicas com serra elétrica. Quais EPIs devem ser usados?',
-        correctEpis: ['EPI_CAPACETE_B', 'EPI_OCULOS', 'EPI_LUVA_CORTE', 'EPI_PROTETOR_AURICULAR', 'EPI_BOTINA_ISOLANTE'],
+        text: 'Você está lixando uma parede recém-emassada para prepará-la para a pintura. A atividade gera um pó fino que se espalha pelo ambiente e pode atingir seus olhos. Qual EPI é essencial para a proteção ocular nesta tarefa?',
+        correctEpis: ['EPI_OCULOS'],
         successMessage: 'Ótimo! Você está protegido contra cortes, faíscas e ruídos.',
         failMessage: 'Atenção! Luvas anticorte e óculos são indispensáveis nesse tipo de atividade.',
-        points: 150
+        points: 120
     },
     {
         id: 'ELET_003',
-        text: 'Manutenção em quadro energizado de baixa tensão. Selecione os EPIs necessários.',
-        correctEpis: ['EPI_CAPACETE_B', 'EPI_VISEIRA_FACIAL', 'EPI_LUVA_ISOLANTE', 'EPI_BOTINA_ISOLANTE'],
+        text: 'Após uma forte chuva, o pátio da fábrica está com muitas poças de água. Você precisa atravessar a área para chegar a outro setor, e há um risco de um cabo de energia energizado ter caído em uma das poças. Qual EPI oferece a proteção fundamental para seus pés?',
+        correctEpis: ['EPI_BOTINA_ISOLANTE'],
         successMessage: 'Excelente! Você está totalmente protegido contra choques elétricos.',
         failMessage: 'Atenção! Luvas isolantes são fundamentais para trabalhos em circuitos energizados.',
-        points: 150
+        points: 180
     },
     {
         id: 'ELET_004',
-        text: 'Inspeção visual de instalações elétricas. Quais EPIs são necessários?',
-        correctEpis: ['EPI_CAPACETE_B', 'EPI_OCULOS', 'EPI_BOTINA_ISOLANTE'],
+        text: 'Você precisa organizar uma bancada e guardar ferramentas pontiagudas e cortantes (formões, chaves de fenda, estiletes) em uma caixa. Qual EPI é essencial para proteger suas mãos?',
+        correctEpis: ['EPI_LUVA_CORTE'],
         successMessage: 'Muito bem! Mesmo em inspeções, a segurança é prioridade.',
         failMessage: 'Lembre-se: mesmo sem contato direto, a proteção básica é importante.',
-        points: 80
+        points: 150
     },
     {
         id: 'ELET_005',
-        text: 'Manutenção elétrica em painel de média tensão sobre tapete isolante. Quais EPIs são obrigatórios?',
-        correctEpis: ['EPI_CAPACETE_B', 'EPI_VISEIRA_FACIAL', 'EPI_LUVA_ISOLANTE', 'EPI_BOTINA_ISOLANTE', 'EPI_TAPETE_ISOLANTE'],
+        text: 'Você está fazendo uma inspeção a pé em uma área rural, passando por baixo de árvores com galhos secos que podem cair. O sol está forte. Qual EPI oferece a proteção básica para a sua cabeça?',
+        correctEpis: ['EPI_CAPACETE_B'],
         successMessage: 'Excelente! Proteção garantida contra riscos elétricos de média tensão.',
         failMessage: 'Atenção! O tapete isolante é indispensável nesse cenário.',
-        points: 220
+        points: 120
     },
     {
         id: 'ELET_006',
-        text: 'Trabalho em altura com eletricidade. Selecione todos os EPIs necessários.',
-        correctEpis: ['EPI_CAPACETE_B', 'EPI_VISEIRA_FACIAL', 'EPI_LUVA_ISOLANTE', 'EPI_BOTINA_ISOLANTE', 'EPI_CINTO'],
+        text: 'Você precisa trocar o rolamento de uma bomba de água industrial. O piso ao redor da bomba está sempre molhado e escorregadio, e a tarefa envolve manusear peças mecânicas pesadas. Quais dois EPIs são essenciais para evitar os principais riscos?',
+        correctEpis: ['EPI_LUVA_CORTE', 'EPI_BOTINA_ISOLANTE'],
         successMessage: 'Perfeito! Proteção dupla: contra choques e quedas!',
         failMessage: 'Não esqueça: trabalho em altura exige cinto de segurança!',
-        points: 200
+        points: 220
     },
     {
         id: 'ELET_007',
-        text: 'Aplicação de solventes em peças mecânicas. Quais EPIs são necessários?',
-        correctEpis: ['EPI_MASCARA', 'EPI_RESPIRADOR', 'EPI_OCULOS', 'EPI_LUVA_ISOLANTE', 'EPI_AVENTAL'],
+        text: 'Sua tarefa é usar uma furadeira de impacto para fixar eletrodutos no alto de uma parede de concreto. A furação projeta pó e pequenos detritos para baixo. Qual a combinação de EPIs necessária para proteger sua cabeça e seus olhos?',
+        correctEpis: ['EPI_OCULOS', 'EPI_CAPACETE_B'],
         successMessage: 'Perfeito! A exposição química foi controlada.',
         failMessage: 'Cuidado! Produtos químicos exigem respirador e avental de proteção.',
-        points: 170
+        points: 200
     },
     {
         id: 'ELET_008',
-        text: 'Operação de esmerilhadeira em oficina. Quais EPIs devem ser utilizados?',
-        correctEpis: ['EPI_OCULOS', 'EPI_PROTETOR_AURICULAR', 'EPI_LUVA_CORTE', 'EPI_AVENTAL'],
+        text: 'Você vai realizar a limpeza interna de um painel elétrico (desenergizado) usando um spray solvente em aerossol para remover oxidação dos contatos. O produto é volátil e pode causar irritação nos olhos e no sistema respiratório. Quais EPIs são indispensáveis?',
+        correctEpis: ['EPI_MASCARA', 'EPI_OCULOS'],
         successMessage: 'Excelente! Proteção contra faíscas, cortes e ruído garantida.',
         failMessage: 'Óculos e luvas anticorte são indispensáveis!',
-        points: 160
+        points: 220
     },
     {
         id: 'ELET_009',
-        text: 'Inspeção de máquinas em funcionamento com alto ruído. Quais EPIs devem ser usados?',
-        correctEpis: ['EPI_PROTETOR_AURICULAR', 'EPI_CAPACETE_B', 'EPI_OCULOS'],
+        text: 'Sua tarefa é furar o teto de concreto para passar um eletroduto. A atividade gera muito ruído e projeta poeira e detritos diretamente para baixo, na sua direção. Quais são os dois EPIs indispensáveis?',
+        correctEpis: ['EPI_PROTETOR_AURICULAR', 'EPI_OCULOS'],
         successMessage: 'Correto! A audição foi protegida em ambiente ruidoso.',
         failMessage: 'Sem protetor auricular, há risco de perda auditiva.',
-        points: 100
+        points: 200
     },
     {
         id: 'ELET_010',
-        text: 'Transporte manual de chapas metálicas afiadas. Quais EPIs são obrigatórios?',
-        correctEpis: ['EPI_LUVA_CORTE', 'EPI_BOTINA_ISOLANTE', 'EPI_CAPACETE_B'],
+        text: 'Você está realizando a troca de filtro em um gerador de energia. O piso ao redor da máquina está manchado de óleo, e as tampas de acesso ao motor são pesadas. Quais são os dois EPIs essenciais para esta manutenção mecânica?',
+        correctEpis: ['EPI_BOTINA_AÇO', 'EPI_LUVA_CORTE'],
         successMessage: 'Muito bem! Você evitou cortes e esmagamentos.',
         failMessage: 'Luvas anticorte são indispensáveis ao manusear chapas.',
-        points: 130
+        points: 220
     },
     {
         id: 'ELET_011',
-        text: 'Limpeza de reservatório com produtos corrosivos. Quais EPIs são essenciais?',
-        correctEpis: ['EPI_RESPIRADOR', 'EPI_LUVA_ISOLANTE', 'EPI_OCULOS', 'EPI_AVENTAL'],
+        text: 'Um painel elétrico industrial sofreu um curto-circuito, gerando um princípio de incêndio com fumaça densa. Como membro da equipe de manutenção e brigada, você precisa se aproximar para usar um extintor de CO2 e avaliar os danos. O painel ainda apresenta risco de arco elétrico. Qual o conjunto de EPIs para uma aproximação segura?',
+        correctEpis: ['EPI_VISEIRA_FACIAL', 'EPI_CAPACETE_B', 'EPI_MASCARA', 'EPI_LUVA_CORTE'],
         successMessage: 'Muito bem! Você garantiu proteção química adequada.',
         failMessage: 'Sem respirador e avental, a exposição química é perigosa.',
-        points: 190
+        points: 250
     },
     {
         id: 'ELET_012',
-        text: 'Troca de lâmpadas em poste de iluminação pública. Quais EPIs são obrigatórios?',
-        correctEpis: ['EPI_CAPACETE_B', 'EPI_OCULOS', 'EPI_CINTO', 'EPI_BOTINA_ISOLANTE'],
+        text: 'Você precisa puxar a fiação e instalar uma tomada industrial para uma betoneira em um canteiro de obras. O ambiente tem muito ruído de outras máquinas, o chão está lamacento e há operários trabalhando em andaimes acima de você. Selecione os EPIs necessários para todos os riscos envolvidos.',
+        correctEpis: ['EPI_CAPACETE_B', 'EPI_PROTETOR_AURICULAR', 'EPI_BOTINA_ISOLANTE'],
         successMessage: 'Ótimo! Você se protegeu contra queda e objetos soltos.',
         failMessage: 'Nunca esqueça o cinto de segurança em altura!',
-        points: 140
+        points: 290
     },
     {
         id: 'ELET_013',
-        text: 'Mistura de tintas e solventes em oficina. Quais EPIs devem ser usados?',
-        correctEpis: ['EPI_RESPIRADOR', 'EPI_OCULOS', 'EPI_LUVA_ISOLANTE', 'EPI_MASCARA'],
+        text: 'Você vai subir em um poste de madeira, usando esporas, para realizar a substituição de um isolador em uma rede de distribuição de baixa tensão. A tarefa envolve risco de queda, choque elétrico e manuseio de materiais que podem causar perfurações. Qual o kit de EPIs completo para esta atividade?',
+        correctEpis: ['EPI_CINTO', 'EPI_CAPACETE_B', 'EPI_BOTINA_ISOLANTE', 'EPI_LUVA_CORTE'],
         successMessage: 'Correto! Você se protegeu contra vapores e respingos químicos.',
         failMessage: 'Máscara e respirador são indispensáveis nesse tipo de atividade.',
-        points: 150
+        points: 300
+    },
+    {
+        id: 'ELET_014',
+        text: 'Você precisa entrar em um grande tanque metálico (espaço confinado) para realizar um pequeno reparo com solda. O ambiente tem ventilação limitada e a solda gera fumos, radiação e fagulhas. Qual o conjunto de EPIs para realizar a tarefa e garantir uma possível evacuação de emergência?',
+        correctEpis: ['EPI_PROTETOR_SOLDADOR', 'EPI_CINTO', 'EPI_LUVA_CORTE', 'EPI_MASCARA'],
+        successMessage: 'Correto! Você se protegeu contra vapores e respingos químicos.',
+        failMessage: 'Máscara e respirador são indispensáveis nesse tipo de atividade.',
+        points: 280
+    },
+    {
+        id: 'ELET_015',
+        text: 'Você faz parte da equipe que vai podar galhos de uma árvore grande que estão quase encostando na rede elétrica da rua. A tarefa envolve o uso de motosserra e o risco de um galho cair sobre a fiação energizada. Quais EPIs são necessários para se proteger dos múltiplos riscos?',
+        correctEpis: ['EPI_CAPACETE_B', 'EPI_OCULOS', 'EPI_PROTETOR_AURICULAR', 'EPI_LUVA_CORTE'],
+        successMessage: 'Correto! Você se protegeu contra vapores e respingos químicos.',
+        failMessage: 'Máscara e respirador são indispensáveis nesse tipo de atividade.',
+        points: 300
     },
 
 ];
@@ -172,6 +185,7 @@ async function handleLogin() {
 //nova funçao de CADASTRO
 
 async function handleRegister() {
+    requestFullscreen();
     const username = document.getElementById('usuario').value;
     const password = document.getElementById('senha').value;
     if (!username || !password) {
@@ -244,9 +258,27 @@ async function showRanking() {
     }
 }
 
+//função tela cheia
+function requestFullscreen() {
+    const elem = document.documentElement; // pega <html>
+
+    if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+    } else if (elem.mozRequestFullScreen) { // Firefox
+        elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) { // Chrome, Safari e Opera
+        elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { // IE/Edge
+        elem.msRequestFullscreen();
+    }
+}
+
 
 // Funções do Jogo
 function startGame() {
+    //tela cheia 
+    requestFullscreen();
+
     document.getElementById('menuScreen').style.display = 'none';
     document.getElementById('gameScreen').style.display = 'block';
     resetGame();
@@ -463,7 +495,39 @@ function playSound(type) {
     oscillator.stop(audioContext.currentTime + 0.5);
 }
 
+//audio
+function openOptions() {
+    document.getElementById('optionsModal').style.display = 'flex';
+}
+
+function closeOptions() {
+    document.getElementById('optionsModal').style.display = 'none';
+}
+
+function saveOptions() {
+    const volumeSlider = document.getElementById('volumeRange');
+    if (bgMusic && volumeSlider) {
+        bgMusic.volume = volumeSlider.value / 100;
+    }
+    closeOptions();
+}
+
+let bgMusic = null;
 // Inicialização
 document.addEventListener('DOMContentLoaded', function () {
     updateStats();
+
+    bgMusic = document.getElementById('bgMusic');
+    const volumeSlider = document.getElementById('volumeRange');
+
+    if (volumeSlider && bgMusic) {
+        bgMusic.volume = volumeSlider.value / 100; // inicia no valor do slider
+        volumeSlider.addEventListener('input', (e) => {
+            bgMusic.volume = e.target.value / 100;
+        });
+    }
 });
+
+//entrar em tela cheia 
+
+

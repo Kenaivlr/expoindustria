@@ -11,9 +11,7 @@
 </head>
 
 <body>
-    <div class="slideContainer">
-        <input type="range" min="1" max="100" value="1" id="myRange" class="slider">
-    </div>
+    
     <div class="game-container">
         <div class="game-header">
             <h1>🎮 MISSÃO EPI 🎮</h1>
@@ -39,9 +37,25 @@
                 <button class="menu-button" onclick="handleLogin()">ENTRAR</button>
                 <button class="menu-button" onclick="handleRegister()">CADASTRAR</button>
                 <button class="menu-button" onclick="showRanking()">RANKING</button>
-                <button class="menu-button" onclick="showInstructions()">INSTRUÇÕES</button>
+                <button class="menu-button" onclick="openOptions()">OPÇÕES</button>
             </div>
         </div>
+
+        <!-- Modal de Opções -->
+        <div class="options-modal" id="optionsModal">
+            <div class="options-content">
+                <h2>⚙️ Opções</h2>
+                <label for="volumeRange">🔊 Volume</label>
+                <input type="range" id="volumeRange" min="0" max="100" value="100">
+                <div class="options-buttons">
+                    <button class="cancel-button" onclick="closeOptions()">Cancelar</button>
+                    <button class="save-button" onclick="saveOptions()">Salvar</button>
+                    <button class="instruction-button" onclick="showInstructions()">INSTRUÇÕES</button>
+                </div>
+            </div>
+        </div>
+
+
         <div class.="menu-screen" id="rankingScreen" style="display: none; padding: 20px;">
             <h2>🏆 RANKING GERAL 🏆</h2>
             <div id="rankingList"
@@ -53,6 +67,7 @@
         <!-- Tela de Jogo -->
         <div class="game-screen" id="gameScreen">
             <button class="Reiniciar-menu" onclick="showMenu()">VOLTAR</button>
+            <button class="Opções-button" onclick="openOptions()">OPÇÕES</button>
             <div class="challenge-area">
                 <div class="challenge-image">
                     <div class="worker-sprite"></div>
@@ -93,6 +108,12 @@
     <div class="result-overlay" id="resultOverlay">
         <div id="resultContent"></div>
     </div>
+
+    <!-- 🎵 Música de Fundo -->
+    <audio id="bgMusic" loop autoplay>
+        <source src="musica/videoplayback.m4a" type="audio/mpeg">
+    </audio>
+
 
     <script src="js/jogo.js"></script>
 </body>
