@@ -34,7 +34,7 @@
                 <input type="password" id="senha" placeholder="Insira sua senha">
             </div>
             <div>
-                <button class="menu-button" onclick="handleLogin()">ENTRAR</button>
+                <button class="menu-button" onclick="startGame()">ENTRAR</button>
                 <button class="menu-button" onclick="handleRegister()">CADASTRAR</button>
                 <button class="menu-button" onclick="showRanking()">RANKING</button>
                 <button class="menu-button" onclick="openOptions()">OPÇÕES</button>
@@ -66,25 +66,14 @@
 
         <!-- Tela de Jogo -->
         <div class="game-screen" id="gameScreen">
-            <button class="Reiniciar-menu" onclick="showMenu()">VOLTAR</button>
-            <button class="Opções-button" onclick="openOptions()">OPÇÕES</button>
+            <div class="btns"> 
+                <button class="Reiniciar-menu" onclick="showMenu()">VOLTAR</button>
+                <button class="Opções-button" onclick="openOptions()">OPÇÕES</button>
+            </div>
             <div class="challenge-area">
                 <div class="challenge-image">
-                    <div class="worker-sprite"></div>
-                    <div class="electrical-panel">
-                        <div class="circuit-breaker"></div>
-                        <div class="circuit-breaker"></div>
-                        <div class="circuit-breaker"></div>
-                        <div class="circuit-breaker"></div>
-                        <div class="circuit-breaker"></div>
-                        <div class="circuit-breaker"></div>
-                        <div class="circuit-breaker"></div>
-                        <div class="circuit-breaker"></div>
-                        <div class="circuit-breaker"></div>
-                        <div class="circuit-breaker"></div>
-                        <div class="circuit-breaker"></div>
-                        <div class="circuit-breaker"></div>
-                    </div>
+                    <img id="challengeImage" src="img/pergunta1.jpg" alt="Situação de trabalho" 
+                    style="max-height: 100%; max-width: 100%; object-fit: cover;">
                 </div>
                 <div class="challenge-text" id="challengeText">
                     Você precisa substituir um disjuntor neste painel. Quais EPIs são essenciais?

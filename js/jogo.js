@@ -11,7 +11,7 @@ let gameState = {
 const epis = {
     'EPI_CAPACETE_B': { name: 'Capacete Classe B', icon: '⛑️' },
     'EPI_VISEIRA_FACIAL': { name: 'Viseira Facial', icon: '🥽' },
-    'EPI_BOTINA_ISOLANTE': { name: 'Botina Isolante com Biqueira de Composite', icon: '👢' },
+    'EPI_BOTINA_ISOLANTE': { name: 'Botina Isolante com Biqueira de Composite', icon: '👞' },
     'EPI_LUVA_ISOLANTE': { name: 'Luva de Malha Pigmentada', icon: '🧤' },
     'EPI_OCULOS': { name: 'Óculos de Segurança', icon: '👓' },
     'EPI_PROTETOR_AURICULAR': { name: 'Protetor Auricular', icon: '🎧' },
@@ -19,8 +19,8 @@ const epis = {
     'EPI_CINTO': { name: 'Cinto de Segurança', icon: '🦺' },
     'EPI_LUVA_CORTE': { name: 'Luva de Raspa de Couro', icon: '🧤🔪' },
     'EPI_TRAJE': { name: 'Traje Impermeável de PVC', icon: '🥼' },
-    'EPI_PROTETOR_SOLDADOR': { name: 'Viseira de Solda', icon: '🔫😷' },
-    'EPI_BOTINA_AÇO': { name: 'Botina com Biqueira de Aço', icon: '🪟' }
+    'EPI_PROTETOR_SOLDADOR': { name: 'Viseira de Solda', icon: '🔫🥽' },
+    'EPI_BOTINA_AÇO': { name: 'Botina com Biqueira de Aço', icon: '🥾' }
 };
 
 // Banco de Desafios
@@ -31,7 +31,8 @@ const challenges = [
         correctEpis: ['EPI_MASCARA'],
         successMessage: 'Parabéns! Com os EPIs corretos, a tarefa foi executada em total segurança.',
         failMessage: 'Cuidado! A proteção facial e isolamento são essenciais para trabalhos elétricos.',
-        points: 100
+        points: 100,
+        image: 'img/pergunta1.jpg'
     },
     {
         id: 'ELET_002',
@@ -39,7 +40,8 @@ const challenges = [
         correctEpis: ['EPI_OCULOS'],
         successMessage: 'Ótimo! Você está protegido contra cortes, faíscas e ruídos.',
         failMessage: 'Atenção! Luvas anticorte e óculos são indispensáveis nesse tipo de atividade.',
-        points: 120
+        points: 120,
+        image: 'img/pergunta2.jpg'
     },
     {
         id: 'ELET_003',
@@ -47,7 +49,8 @@ const challenges = [
         correctEpis: ['EPI_BOTINA_ISOLANTE'],
         successMessage: 'Excelente! Você está totalmente protegido contra choques elétricos.',
         failMessage: 'Atenção! Luvas isolantes são fundamentais para trabalhos em circuitos energizados.',
-        points: 180
+        points: 180,
+        image: 'img/pergunta3.jpg'
     },
     {
         id: 'ELET_004',
@@ -55,7 +58,8 @@ const challenges = [
         correctEpis: ['EPI_LUVA_CORTE'],
         successMessage: 'Muito bem! Mesmo em inspeções, a segurança é prioridade.',
         failMessage: 'Lembre-se: mesmo sem contato direto, a proteção básica é importante.',
-        points: 150
+        points: 150,
+        image: 'img/pergunta4.jpg'
     },
     {
         id: 'ELET_005',
@@ -63,7 +67,8 @@ const challenges = [
         correctEpis: ['EPI_CAPACETE_B'],
         successMessage: 'Excelente! Proteção garantida contra riscos elétricos de média tensão.',
         failMessage: 'Atenção! O tapete isolante é indispensável nesse cenário.',
-        points: 120
+        points: 120,
+        image: 'img/pergunta5.jpg'
     },
     {
         id: 'ELET_006',
@@ -71,7 +76,8 @@ const challenges = [
         correctEpis: ['EPI_LUVA_CORTE', 'EPI_BOTINA_ISOLANTE'],
         successMessage: 'Perfeito! Proteção dupla: contra choques e quedas!',
         failMessage: 'Não esqueça: trabalho em altura exige cinto de segurança!',
-        points: 220
+        points: 220,
+        image: 'img/pergunta6.jpg'
     },
     {
         id: 'ELET_007',
@@ -79,7 +85,8 @@ const challenges = [
         correctEpis: ['EPI_OCULOS', 'EPI_CAPACETE_B'],
         successMessage: 'Perfeito! A exposição química foi controlada.',
         failMessage: 'Cuidado! Produtos químicos exigem respirador e avental de proteção.',
-        points: 200
+        points: 200,
+        image: 'img/pergunta7.jpg'
     },
     {
         id: 'ELET_008',
@@ -87,7 +94,8 @@ const challenges = [
         correctEpis: ['EPI_MASCARA', 'EPI_OCULOS'],
         successMessage: 'Excelente! Proteção contra faíscas, cortes e ruído garantida.',
         failMessage: 'Óculos e luvas anticorte são indispensáveis!',
-        points: 220
+        points: 220,
+        image: 'img/pergunta8.jpg'
     },
     {
         id: 'ELET_009',
@@ -95,7 +103,8 @@ const challenges = [
         correctEpis: ['EPI_PROTETOR_AURICULAR', 'EPI_OCULOS'],
         successMessage: 'Correto! A audição foi protegida em ambiente ruidoso.',
         failMessage: 'Sem protetor auricular, há risco de perda auditiva.',
-        points: 200
+        points: 200,
+        image: 'img/pergunta9.jpg'
     },
     {
         id: 'ELET_010',
@@ -103,7 +112,8 @@ const challenges = [
         correctEpis: ['EPI_BOTINA_AÇO', 'EPI_LUVA_CORTE'],
         successMessage: 'Muito bem! Você evitou cortes e esmagamentos.',
         failMessage: 'Luvas anticorte são indispensáveis ao manusear chapas.',
-        points: 220
+        points: 220,
+        image: 'img/pergunta10.jpg'
     },
     {
         id: 'ELET_011',
@@ -111,7 +121,8 @@ const challenges = [
         correctEpis: ['EPI_VISEIRA_FACIAL', 'EPI_CAPACETE_B', 'EPI_MASCARA', 'EPI_LUVA_CORTE'],
         successMessage: 'Muito bem! Você garantiu proteção química adequada.',
         failMessage: 'Sem respirador e avental, a exposição química é perigosa.',
-        points: 250
+        points: 250,
+        image: 'img/pergunta11.jpg'
     },
     {
         id: 'ELET_012',
@@ -119,7 +130,8 @@ const challenges = [
         correctEpis: ['EPI_CAPACETE_B', 'EPI_PROTETOR_AURICULAR', 'EPI_BOTINA_ISOLANTE'],
         successMessage: 'Ótimo! Você se protegeu contra queda e objetos soltos.',
         failMessage: 'Nunca esqueça o cinto de segurança em altura!',
-        points: 290
+        points: 290,
+        image: 'img/pergunta12.jpg'
     },
     {
         id: 'ELET_013',
@@ -127,7 +139,8 @@ const challenges = [
         correctEpis: ['EPI_CINTO', 'EPI_CAPACETE_B', 'EPI_BOTINA_ISOLANTE', 'EPI_LUVA_CORTE'],
         successMessage: 'Correto! Você se protegeu contra vapores e respingos químicos.',
         failMessage: 'Máscara e respirador são indispensáveis nesse tipo de atividade.',
-        points: 300
+        points: 300,
+        image: 'img/pergunta13.jpg'
     },
     {
         id: 'ELET_014',
@@ -135,7 +148,8 @@ const challenges = [
         correctEpis: ['EPI_PROTETOR_SOLDADOR', 'EPI_CINTO', 'EPI_LUVA_CORTE', 'EPI_MASCARA'],
         successMessage: 'Correto! Você se protegeu contra vapores e respingos químicos.',
         failMessage: 'Máscara e respirador são indispensáveis nesse tipo de atividade.',
-        points: 280
+        points: 280,
+        image: 'img/pergunta14.jpg'
     },
     {
         id: 'ELET_015',
@@ -143,7 +157,8 @@ const challenges = [
         correctEpis: ['EPI_CAPACETE_B', 'EPI_OCULOS', 'EPI_PROTETOR_AURICULAR', 'EPI_LUVA_CORTE'],
         successMessage: 'Correto! Você se protegeu contra vapores e respingos químicos.',
         failMessage: 'Máscara e respirador são indispensáveis nesse tipo de atividade.',
-        points: 300
+        points: 300,
+        image: 'img/pergunta15.jpg'
     },
 
 ];
@@ -299,6 +314,7 @@ function resetGame() {
 function loadChallenge() {
     const challenge = challenges[gameState.currentChallenge % challenges.length];
     document.getElementById('challengeText').textContent = challenge.text;
+    document.getElementById('challengeImage').src = challenge.image;
 
     // Limpar seleção anterior
     gameState.selectedEpis = [];
@@ -434,6 +450,11 @@ function nextChallenge() {
         if (gameState.currentChallenge % 1 === 0) {
             gameState.level++;
             updateStats();
+            if(gameState.level > 15){
+                updateStats();
+                saveScore();
+                showMenu();
+            }
         }
         loadChallenge();
     } else {

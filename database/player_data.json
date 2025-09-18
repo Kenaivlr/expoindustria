@@ -1,22 +1,27 @@
 [
   {
     "username": "kalil",
-    "score": 0,
-    "rank": "Novato"
+    "score": 3150,
+    "rank": "Mestre da Segurança"
   },
   {
     "username": "vivihsantos",
+    "score": 1000,
+    "rank": "Aprendiz"
+  },
+  {
+    "username": "nilykkj",
     "score": 220,
     "rank": "Novato"
   },
   {
-    "username": "nilykkj",
-    "score": 0,
-    "rank": "Novato"
+    "username": "kawa",
+    "score": 2200,
+    "rank": "Experiente"
   },
   {
-    "username": "lucas ",
-    "score": 0,
-    "rank": "Novato"
+    "username": "CaioVictordev",
+    "score": 1140,
+    "rank": "Experiente"
   }
 ]
