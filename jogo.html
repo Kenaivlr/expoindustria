@@ -11,9 +11,17 @@
 </head>
 
 <body>
-    
+<!--------------------------------------------------------------------------------------->
     <div class="game-container">
         <div class="game-header">
+
+            <!--novo menu-->
+            <div id="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+<!--------------------------------------------------------------------------------------->
             <h1>🎮 MISSÃO EPI 🎮</h1>
             <div class="game-stats">
                 <div class="stat">❤️ Vidas: <span id="lives"></span></div>
@@ -24,39 +32,25 @@
 
         <!-- Tela de Menu -->
         <div class="menu-screen animate__fadeOutUp" id="menuScreen">
+
             <h2>⚡ SEGURANÇA EM JOGO ⚡</h2>
-            <p style="color: #fff; font-size: 12px; margin-bottom: 30px; line-height: 1.8;">
-                Aprenda sobre segurança do trabalho<br>
+            <div style="color: #fff; font-size: 13.5px; margin-bottom: 45px; line-height: 1.5;">
+                Aprenda sobre segurança do trabalho
                 selecionando os EPIs corretos!
-            </p>
+            </div>
             <div class="usuario">
                 <input type="text" id="usuario" placeholder="Insira seu usuário">
+                <br>
                 <input type="password" id="senha" placeholder="Insira sua senha">
             </div>
             <div>
                 <button class="menu-button" onclick="startGame()">ENTRAR</button>
                 <button class="menu-button" onclick="handleRegister()">CADASTRAR</button>
-                <button class="menu-button" onclick="showRanking()">RANKING</button>
-                <button class="menu-button" onclick="openOptions()">OPÇÕES</button>
-            </div>
-        </div>
-
-        <!-- Modal de Opções -->
-        <div class="options-modal" id="optionsModal">
-            <div class="options-content">
-                <h2>⚙️ Opções</h2>
-                <label for="volumeRange">🔊 Volume</label>
-                <input type="range" id="volumeRange" min="0" max="100" value="100">
-                <div class="options-buttons">
-                    <button class="cancel-button" onclick="closeOptions()">Cancelar</button>
-                    <button class="save-button" onclick="saveOptions()">Salvar</button>
-                    <button class="instruction-button" onclick="showInstructions()">INSTRUÇÕES</button>
-                </div>
             </div>
         </div>
 
 
-        <div class.="menu-screen" id="rankingScreen" style="display: none; padding: 20px;">
+        <div class="menu-screen" id="rankingScreen" style="display: none; padding: 20px;">
             <h2>🏆 RANKING GERAL 🏆</h2>
             <div id="rankingList"
                 style="color: #fff; text-align: left; max-width: 400px; margin: 20px auto; font-size: 12px; line-height: 2;">
@@ -64,16 +58,22 @@
             <button class="voltar-menu" onclick="showMenu()">VOLTAR</button>
         </div>
 
+        <div class="intro-screen" id="introScreen">
+            <video id="introVideo" muted playsinline>
+                <source src="video/intro jogo5.mp4" type="video/mp4">
+            </video>
+        </div>
+
         <!-- Tela de Jogo -->
         <div class="game-screen" id="gameScreen">
             <div class="btns"> 
                 <button class="Reiniciar-menu" onclick="showMenu()">VOLTAR</button>
-                <button class="Opções-button" onclick="openOptions()">OPÇÕES</button>
             </div>
+
             <div class="challenge-area">
                 <div class="challenge-image">
-                    <img id="challengeImage" src="img/pergunta1.jpg" alt="Situação de trabalho" 
-                    style="max-height: 100%; max-width: 100%; object-fit: cover;">
+                    <img id="challengeImage" src="img/pergunta1.jpg" alt="Situação de trabalho"
+                        style="max-height: 100%; max-width: 100%; object-fit: cover;">
                 </div>
                 <div class="challenge-text" id="challengeText">
                     Você precisa substituir um disjuntor neste painel. Quais EPIs são essenciais?
@@ -92,6 +92,19 @@
             </div>
         </div>
     </div>
+    <!----------------------------------------------------------------------------------------->
+    <!--novo menu-->
+    <div class="side-menu" id="sideMenu">
+        <a href="#" onclick="showInstructions()">INSTRUÇÕES</a>
+        <a href="#" onclick="showRanking()">RANKING</a>
+        <div class="volume-control">
+            <label for="volumeRange">VOLUME</label>
+            <input type="range" id="volumeRange" min="0" max="100" value="100">
+        </div>
+        <a href="#" id="backToMenuBtn" onclick="showMenuFromSideMenu()">VOLTAR</a>
+    </div>
+
+    <!---------------------------------------------------------------------------------------->
 
     <!-- Overlay de Resultado -->
     <div class="result-overlay" id="resultOverlay">

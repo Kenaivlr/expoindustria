@@ -186,7 +186,7 @@ async function handleLogin() {
 
         if (result.success) {
             loggedInUser = username;
-  
+
             startGame();
         } else {
             alert(result.message);
@@ -294,7 +294,29 @@ function startGame() {
     //tela cheia 
     requestFullscreen();
 
+    // Esconde o menu
     document.getElementById('menuScreen').style.display = 'none';
+
+    // Mostra a tela de introdução
+    const introScreen = document.getElementById("introScreen");
+    const introVideo = document.getElementById("introVideo");
+
+    // Garante que o vídeo comece agora
+    introVideo.currentTime = 0; // reinicia do começo
+    introVideo.play();
+
+    introScreen.style.display ="block";
+
+    // Quando o vídeo terminar → inicia o jogo
+    introVideo.addEventListener("ended", () => {
+        introScreen.style.display = "none";
+        iniciarJogo();
+    });
+}
+
+// Função auxiliar para realmente iniciar o jogo
+function iniciarJogo() {
+
     document.getElementById('gameScreen').style.display = 'block';
     resetGame();
     loadChallenge();
@@ -450,7 +472,7 @@ function nextChallenge() {
         if (gameState.currentChallenge % 1 === 0) {
             gameState.level++;
             updateStats();
-            if(gameState.level > 15){
+            if (gameState.level > 15) {
                 updateStats();
                 saveScore();
                 showMenu();
@@ -516,22 +538,6 @@ function playSound(type) {
     oscillator.stop(audioContext.currentTime + 0.5);
 }
 
-//audio
-function openOptions() {
-    document.getElementById('optionsModal').style.display = 'flex';
-}
-
-function closeOptions() {
-    document.getElementById('optionsModal').style.display = 'none';
-}
-
-function saveOptions() {
-    const volumeSlider = document.getElementById('volumeRange');
-    if (bgMusic && volumeSlider) {
-        bgMusic.volume = volumeSlider.value / 100;
-    }
-    closeOptions();
-}
 
 let bgMusic = null;
 // Inicialização
@@ -549,6 +555,67 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-//entrar em tela cheia 
+
+//----------------------------------------------------------------------------------------------------------------------
+
+// --- LÓGICA DO NOVO MENU HAMBÚRGUER ---
+
+const hamburgerMenu = document.getElementById('hamburger-menu');
+const sideMenu = document.getElementById('sideMenu');
+const backToMenuBtn = document.getElementById('backToMenuBtn');
+
+// Abre e fecha o menu lateral
+hamburgerMenu.addEventListener('click', () => {
+    const isOpen = sideMenu.classList.toggle('show');
+    hamburgerMenu.classList.toggle('active', isOpen); // adiciona classe só quando aberto
+});
 
 
+// Função para controlar a visibilidade do botão "VOLTAR"
+function updateMenuButtonVisibility() {
+    const gameScreen = document.getElementById('gameScreen');
+    if (gameScreen.style.display === 'block') {
+        backToMenuBtn.style.display = 'block';
+    } else {
+        backToMenuBtn.style.display = 'none';
+    }
+}
+
+// Funções que fecham o menu antes de executar a ação
+function showRankingFromMenu() {
+    sideMenu.classList.remove('show');
+    showRanking();
+}
+
+function showMenuFromSideMenu() {
+    sideMenu.classList.remove('show');
+    showMenu();
+}
+
+// Sobrescrevendo funções antigas para atualizar o menu
+const originalStartGame = startGame;
+startGame = function () {
+    originalStartGame();
+    updateMenuButtonVisibility();
+};
+
+const originalShowMenu = showMenu;
+showMenu = function () {
+    originalShowMenu();
+    updateMenuButtonVisibility();
+};
+
+// Fecha o menu se clicar fora
+document.addEventListener('click', (e) => {
+    if (!sideMenu.contains(e.target) && !hamburgerMenu.contains(e.target)) {
+        sideMenu.classList.remove('show');
+        hamburgerMenu.classList.remove('active');
+    }
+});
+
+// Corrige visibilidade do botão "Voltar ao Menu"
+function updateMenuButtonVisibility() {
+    const gameScreen = document.getElementById('gameScreen');
+    const visible = window.getComputedStyle(gameScreen).display !== 'none';
+    backToMenuBtn.style.display = visible ? 'block' : 'none';
+}
